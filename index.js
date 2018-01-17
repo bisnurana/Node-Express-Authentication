@@ -1,5 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const keys = require('./config/keys');
+
+mongoose.connect(keys.MONGODB_URL, { useMongoClient: true });
 
 const app = express();
 // middlewares
