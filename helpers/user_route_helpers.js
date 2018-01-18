@@ -1,7 +1,7 @@
 const Joi = require('joi');
 
 module.exports = {
-  validateSignup(req, res, next) {
+  validateFields(req, res, next) {
     const schema = {
       email: Joi.string().email().required(),
       password: Joi.string().regex(new RegExp('^[a-zA-Z0-9]{8,32}$')).required(),

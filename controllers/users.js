@@ -27,7 +27,9 @@ module.exports = {
     }
   },
   signIn: async (req, res, next) => {
-    console.log('signIn controller called');
+    const token = issueToken(req.user);
+    res.status(200).json({ token });
+    // console.log('signIn controller called');
   },
   authKey: async (req, res, next) => {
     console.log('authKey controller called');
