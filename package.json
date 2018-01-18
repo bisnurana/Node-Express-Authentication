@@ -16,7 +16,10 @@
     "joi": "^13.1.0",
     "jsonwebtoken": "^8.1.0",
     "mongoose": "^4.13.9",
-    "nodemon": "^1.14.11"
+    "nodemon": "^1.14.11",
+    "passport": "^0.4.0",
+    "passport-jwt": "^3.0.1",
+    "passport-local": "^1.0.0"
   },
   "devDependencies": {
     "eslint-config-airbnb-base": "^12.1.0",
