@@ -15,11 +15,11 @@ function issueToken(user) {
 module.exports = {
   signUp: async (req, res, next) => {
     const { email, password } = req.body;
-    const existingUser = await User.findOne({ email });
+    const existingUser = await User.findOne({ 'local.email': email });
     if (existingUser) {
       res.status(403).send({ error: 'User with this email already exists' });
     } else {
-      const newUser = new User({ email, password });
+      const newUser = new User({ method: 'local', local: { email, password } });
       await newUser.save();
       const jwtToken = issueToken(newUser);
       res.status(200).json({ token: jwtToken });
@@ -31,7 +31,11 @@ module.exports = {
     res.status(200).json({ token });
     // console.log('signIn controller called');
   },
+  googleAuth: async (req, res, next) => {
+    const token = issueToken(req.user);
+    res.status(200).json({ token });
+  },
   authKey: async (req, res, next) => {
-    console.log('authKey controller called');
+    console.log('Acessed protected resource');
   },
 };

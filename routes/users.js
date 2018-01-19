@@ -10,4 +10,6 @@ router.route('/signin')
   .post(validateFields, passport.authenticate('local', { session: false }), UserController.signIn);
 router.route('/authKey')
   .post(passport.authenticate('jwt', { session: false }), UserController.authKey);
+router.route('/oauth/google')
+  .post(passport.authenticate('googleToken', { session: false }), UserController.googleAuth);
 module.exports = router;
