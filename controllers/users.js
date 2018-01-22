@@ -35,7 +35,11 @@ module.exports = {
     const token = issueToken(req.user);
     res.status(200).json({ token });
   },
+  facebookAuth: async (req, res, next) => {
+    const token = issueToken(req.user);
+    res.status(200).json({ token });
+  },
   authKey: async (req, res, next) => {
-    console.log('Acessed protected resource');
+    res.status(200).json({ Success: 'Now you can access protected contents' });
   },
 };

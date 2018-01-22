@@ -12,4 +12,6 @@ router.route('/authKey')
   .post(passport.authenticate('jwt', { session: false }), UserController.authKey);
 router.route('/oauth/google')
   .post(passport.authenticate('googleToken', { session: false }), UserController.googleAuth);
+router.route('/oauth/facebook')
+  .post(passport.authenticate('facebookToken', { session: false }), UserController.facebookAuth);
 module.exports = router;
